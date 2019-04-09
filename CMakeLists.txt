@@ -64,7 +64,15 @@ set(GL_WARP_HEADERS
 	src/Buffer-inc.h
 	src/Point-inc.h
 	src/ColorBuffer-inc.h
-	src/Initializer-inc.h include/BaseObejct.h src/BaseObject-inc.h)
+	src/Initializer-inc.h
+	include/BaseObejct.h
+	src/BaseObject-inc.h
+	include/Vertex.h
+	src/Vertex-inc.h
+	include/Patcher.h
+	src/Pather-inc.h
+	include/TessellationControlShader.h
+	include/TessellationEvaluationShader.h)
 
 add_library(GL_WARP STATIC
 	${GL_WARP_SOURSE}
@@ -133,6 +141,16 @@ target_link_libraries(tutorial05_draw_triangle
 	${ALL_LIBS}
 	)
 
+# Tutorial 6
+add_executable(tutorial06_draw_triangle_and_roll_and_tess
+	tutorial06_draw_triangle_and_roll_and_tess/tutorial06.cpp
+	tutorial06_draw_triangle_and_roll_and_tess/Renderer.h
+	tutorial06_draw_triangle_and_roll_and_tess/Renderer.cpp
+	)
+target_link_libraries(tutorial06_draw_triangle_and_roll_and_tess
+	${ALL_LIBS}
+	)
+
 # Xcode and Visual working directories
 set_target_properties(tutorial01_first_window PROPERTIES XCODE_ATTRIBUTE_CONFIGURATION_BUILD_DIR "${CMAKE_CURRENT_SOURCE_DIR}/tutorial01_first_window/")
 # create_target_launcher(tutorial01_first_window WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/tutorial01_first_window/")
@@ -147,6 +165,9 @@ set_target_properties(tutorial04_draw_dot PROPERTIES XCODE_ATTRIBUTE_CONFIGURATI
 # create_target_launcher(tutorial01_first_window WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/tutorial01_first_window/")
 
 set_target_properties(tutorial05_draw_triangle PROPERTIES XCODE_ATTRIBUTE_CONFIGURATION_BUILD_DIR "${CMAKE_CURRENT_SOURCE_DIR}/tutorial05_draw_triangle")
+# create_target_launcher(tutorial01_first_window WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/tutorial01_first_window/")
+
+set_target_properties(tutorial06_draw_triangle_and_roll_and_tess PROPERTIES XCODE_ATTRIBUTE_CONFIGURATION_BUILD_DIR "${CMAKE_CURRENT_SOURCE_DIR}/tutorial06_draw_triangle_and_roll_and_tess")
 # create_target_launcher(tutorial01_first_window WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/tutorial01_first_window/")
 
 
