@@ -8,21 +8,19 @@
 #include <glob.h>
 
 #include "Singleton.h"
+#include "BaseObejct.h"
 
 namespace gl {
 
 // Todo 인터페이스 개선!!!
 template<unsigned int T>
-class Buffer : public designPatterns::Singleton<Buffer<T>> {
+class Buffer : public BaseObject<Buffer<T>>, public gl::Singleton<Buffer<T>> {
  public:
   inline Buffer();
   inline virtual ~Buffer() = default;
 
   template<size_t N>
   void clear(const float (&value)[N]);
-
- private:
-  unsigned int mData;
 };
 
 #include "../src/Buffer-inc.h"

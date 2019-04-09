@@ -6,10 +6,11 @@
 #define GLWARPER_PROGRAM_H
 
 #include "Shader.h"
+#include "BaseObejct.h"
 
 namespace gl {
 
-class Program {
+class Program : public BaseObject<Program> {
  public:
   inline Program();
   inline ~Program();
@@ -18,9 +19,6 @@ class Program {
   inline Program& attach(Shader<type>& shader);
   inline void link();
   inline void use();
-
- private:
-  unsigned int mData;
 };
 
 }

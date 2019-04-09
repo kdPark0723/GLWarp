@@ -9,7 +9,7 @@
 
 namespace gl {
 
-class Initializer : public designPatterns::Singleton<Initializer> {
+class Initializer : public gl::Singleton<Initializer> {
  public:
   struct Info {
     int majorVersion;
@@ -32,5 +32,7 @@ class Initializer : public designPatterns::Singleton<Initializer> {
 inline Initializer& initializer();
 
 }
+
+#include "../src/Initializer-inc.h"
 
 #endif //GLFWPROJECWARPER_INITIALIZER_H

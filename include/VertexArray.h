@@ -23,7 +23,7 @@ class VertexArray {
 
 // Todo 인터페이스 개선 하기!!!
 template <unsigned int Mode>
-class Arrays : public designPatterns::Singleton<Arrays<Mode>> {
+class Arrays : public gl::Singleton<Arrays<Mode>> {
  public:
   void draw(int first, size_t count);
 };

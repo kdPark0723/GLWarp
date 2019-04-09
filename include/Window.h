@@ -18,8 +18,8 @@ class Window {
     int windowHeight;
   };
 
-  Window(std::string &title, int windowWidth, int windowHeight);
-  Window(std::string &&title, int windowWidth, int windowHeight);
+  Window(std::string& title, int windowWidth, int windowHeight);
+  Window(std::string&& title, int windowWidth, int windowHeight);
   virtual ~Window();
 
   int getWigth() const noexcept;
@@ -35,7 +35,7 @@ class Window {
 
  protected:
   Info mInfo;
-  void *mWindow;
+  void* mWindow;
 
   inline void init();
 };

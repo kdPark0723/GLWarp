@@ -51,7 +51,7 @@ void gl::Window::setHeight(int height) noexcept {
   mInfo.windowHeight = height;
 }
 
-void *gl::Window::getWindowContext() {
+void* gl::Window::getWindowContext() {
   return mWindow;
 }
 

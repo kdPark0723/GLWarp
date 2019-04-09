@@ -11,14 +11,14 @@
 
 template<unsigned int T>
 gl::Buffer<T>::Buffer()
-  :mData{0} {
+  : BaseObject<Buffer<T>>{} {
 }
 
 template<unsigned int T>
 template<size_t N>
 void gl::Buffer<T>::clear(const float (&value)[N]) {
   const GLfloat *pValue = value;
-  glClearBufferfv(static_cast<GLenum>(T), static_cast<GLint>(mData), pValue);
+  glClearBufferfv(static_cast<GLenum>(T), static_cast<GLint>(BaseObject<Buffer<T>>::mObjectId), pValue);
 }
 
 #endif //GLWARPER_BUFFER_INC_H

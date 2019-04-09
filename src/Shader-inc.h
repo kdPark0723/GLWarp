@@ -16,64 +16,56 @@
 
 template <unsigned int T>
 gl::Shader<T>::Shader(std::string &route)
-  : mRoute{route}, mData{} {
+  : BaseObject<Shader<T>>{}, mRoute{route} {
   init();
 }
 
 template <unsigned int T>
 gl::Shader<T>::Shader(std::string &&route)
-  : mRoute{route}, mData{} {
+  : mRoute{route} {
   init();
 }
 
 template <unsigned int T>
 gl::Shader<T>::~Shader() {
-  glDeleteShader(mData);
+  glDeleteShader(BaseObject<Shader<T>>::mObjectId);
 }
 
 template <unsigned int T>
 void gl::Shader<T>::compile() {
-  glCompileShader(mData);
+  glCompileShader(BaseObject<Shader<T>>::mObjectId);
 
   int result;
-  int info_log_length;
+  int infoLogLength;
 
-  glGetShaderiv(mData, GL_COMPILE_STATUS, &result);
-  glGetShaderiv(mData, GL_INFO_LOG_LENGTH, &info_log_length);
-  if (info_log_length > 0) {
-    std::string error_message{};
-    error_message.resize(info_log_length + 1);
+  glGetShaderiv(BaseObject<Shader<T>>::mObjectId, GL_COMPILE_STATUS, &result);
+  glGetShaderiv(BaseObject<Shader<T>>::mObjectId, GL_INFO_LOG_LENGTH, &infoLogLength);
 
-    glGetShaderInfoLog(mData, info_log_length, nullptr, (GLchar *) (error_message.data()));
-    errorHandle(Error::GL, error_message);
+  if (infoLogLength > 0) {
+    std::string errorMessage{};
+    errorMessage.resize(infoLogLength + 1);
+
+    glGetShaderInfoLog(BaseObject<Shader<T>>::mObjectId, infoLogLength, nullptr, (GLchar *) (errorMessage.data()));
+    errorHandle(Error::GL, errorMessage);
   }
-}
-
-template <unsigned int T>
-unsigned int gl::Shader<T>::data() const {
-  if (!mData) {
-    errorHandle(Error::GL, "Shader should be compiled before to get data.");
-    return 0;
-  }
-  return mData;
 }
 
 // // Todo 가져온 쉐이더 코드를 수정하면 실제 파일도 수정되게 만들기
-// template <unsigned int T>
-// std::string gl::Shader<T>::getShaderCode() {
-//   return static_cast<std::string>(const_cast<const gl::Shader<T>&>(*this).getShaderCode());
-// }
+//template <unsigned int T>
+//std::string gl::Shader<T>::getShaderSource() {
+//  return static_cast<std::string>(const_cast<const gl::Shader<T>&>(*this).getShaderSource());
+//}
 
 template <unsigned int T>
-const std::string gl::Shader<T>::getShaderCode() const {
-  std::string shaderCode;
+const std::string gl::Shader<T>::getShaderSource() const {
+  std::string shaderSource;
   std::ifstream shaderStream{mRoute.c_str()};
 
   if (shaderStream.is_open()) {
-    std::stringstream sstr;
+    std::stringstream stringStream{};
 
-    sstr << shaderStream.rdbuf();
-    shaderCode = sstr.str();
+    stringStream << shaderStream.rdbuf();
+    shaderSource = stringStream.str();
 
     shaderStream.close();
   } else {
@@ -81,16 +73,16 @@ const std::string gl::Shader<T>::getShaderCode() const {
     return nullptr;
   }
 
-  return shaderCode;
+  return shaderSource;
 }
 
 template <unsigned int T>
 void gl::Shader<T>::init() {
-  mData = glCreateShader(T);
+  BaseObject<Shader<T>>::mObjectId = glCreateShader(T);
 
-  const std::string shaderCode{std::move(getShaderCode())};
-  const char *pShaderCode = shaderCode.data();
-  glShaderSource(mData, 1, &pShaderCode, nullptr);
+  const std::string& shaderSource{getShaderSource()};
+  const char *pShaderSource = shaderSource.data();
+  glShaderSource(BaseObject<Shader<T>>::mObjectId, 1, &pShaderSource, nullptr);
 }
 
 #endif

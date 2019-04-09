@@ -10,7 +10,7 @@
 namespace gl {
 
 // 인터페이스 개선!!!
-class Point : public designPatterns::Singleton<Point> {
+class Point : public gl::Singleton<Point> {
  public:
   inline void size(float size);
 };

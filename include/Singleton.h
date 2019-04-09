@@ -5,13 +5,13 @@
 #ifndef GLWARPER_SINGLETON_H
 #define GLWARPER_SINGLETON_H
 
-namespace designPatterns {
+namespace gl {
 
-template <typename T>
+template <typename Derived>
 class Singleton {
  public:
-  inline static T& getInstance() {
-    static T instance{};
+  inline static Derived& getInstance() {
+    static Derived instance{};
 
     return instance;
   }

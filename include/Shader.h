@@ -7,24 +7,24 @@
 
 #include <string>
 
+#include "BaseObejct.h"
+
 namespace gl {
 
 template <unsigned int T>
-class Shader {
+class Shader : public BaseObject<Shader<T>> {
  public:
   inline explicit Shader(std::string& route);
   inline explicit Shader(std::string&& route);
   inline virtual ~Shader();
 
   inline virtual void compile();
-  inline unsigned int data() const;
 
  protected:
   std::string mRoute;
-  unsigned int mData;
 
-  const std::string getShaderCode() const;
-  // std::string getShaderCode();
+  const std::string getShaderSource() const;
+  // std::string getShaderSource();
   virtual void init();
 };
 

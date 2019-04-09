@@ -64,7 +64,7 @@ set(GL_WARP_HEADERS
 	src/Buffer-inc.h
 	src/Point-inc.h
 	src/ColorBuffer-inc.h
-	src/Initializer-inc.h)
+	src/Initializer-inc.h include/BaseObejct.h src/BaseObject-inc.h)
 
 add_library(GL_WARP STATIC
 	${GL_WARP_SOURSE}
