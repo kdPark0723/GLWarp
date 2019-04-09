@@ -26,7 +26,7 @@ void gl::Program::use() {
 
 template<unsigned int type>
 gl::Program &gl::Program::attach(gl::Shader<type> &shader) {
-  glAttachShader(static_cast<GLuint>(mObjectId), static_cast<GLuint>(shader.getObjectID()));
+  glAttachShader(static_cast<GLuint>(mObjectId), static_cast<GLuint>(shader.getObjectId()));
 
   return *this;
 }

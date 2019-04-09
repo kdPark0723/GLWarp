@@ -17,7 +17,7 @@ gl::BaseObject<Derived>::BaseObject()
 }
 
 template<typename Derived>
-unsigned int gl::BaseObject<Derived>::getObjectID() const {
+unsigned int gl::BaseObject<Derived>::getObjectId() const {
   if (!mObjectId) {
     errorHandle(Error::GL, "This ID is not generated.");
     return 0;

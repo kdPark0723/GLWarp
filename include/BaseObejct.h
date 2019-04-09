@@ -13,7 +13,7 @@ class BaseObject {
   inline BaseObject();
   ~BaseObject() = default;
 
-  inline unsigned int getObjectID() const;
+  inline unsigned int getObjectId() const;
 
  protected:
   unsigned int mObjectId;
