@@ -9,8 +9,12 @@
 
 #include "../include/InternalGraphicLib.h"
 
-void GL::Point::size(float size) {
+void gl::Point::size(float size) {
   glPointSize(static_cast<GLfloat>(size));
+}
+
+gl::Point &point() {
+  return gl::Point::getInstance();
 }
 
 #endif //GLWARPER_POINT_INC_H

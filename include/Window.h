@@ -7,19 +7,19 @@
 
 #include <string>
 
-namespace GL {
+namespace gl {
 
 class Window {
  public:
   struct Info
   {
     std::string title;
-    int window_width;
-    int window_height;
+    int windowWidth;
+    int windowHeight;
   };
 
-  Window(std::string& title, int window_width, int window_height);
-  Window(std::string&& title, int window_width, int window_height);
+  Window(std::string &title, int windowWidth, int windowHeight);
+  Window(std::string &&title, int windowWidth, int windowHeight);
   virtual ~Window();
 
   int getWigth() const noexcept;
@@ -34,8 +34,8 @@ class Window {
   bool isClose();
 
  protected:
-  Info m_info;
-  void* m_window;
+  Info mInfo;
+  void *mWindow;
 
   inline void init();
 };

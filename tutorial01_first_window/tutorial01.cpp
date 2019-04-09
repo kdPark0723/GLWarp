@@ -2,8 +2,8 @@
 #include "../include/Renderer.h"
 
 int main() {
-  GL::Window window{"First Window", 1024, 768};
-  GL::Renderer renderer{window};
+  gl::Window window{"First Window", 1024, 768};
+  gl::Renderer renderer{window};
 
   renderer.run();
 

@@ -10,11 +10,22 @@
 #include <stdexcept>
 #include <string>
 
-void GL::errorCallback(int error, const char* description) {
-  std::string error_description{"Error: "};
-  error_description.append(description);
+void gl::errorHandle(int error, const std::string &description) {
+  std::string errorDescription{"Error["};
+  switch (error) {
+    case Error::GL:errorDescription.append("GL");
+      break;
+    case Error::GL3W:errorDescription.append("GL3W");
+      break;
+    case Error::GLFW:errorDescription.append("GLFW");
+      break;
+    default:errorDescription.append("Undefined");
+      break;
+  }
+  errorDescription.append("]: ");
+  errorDescription.append(description);
 
-  throw std::runtime_error{error_description};
+  throw std::runtime_error{errorDescription};
 }
 
 #endif

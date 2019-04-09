@@ -7,26 +7,26 @@
 
 #include "Singleton.h"
 
-namespace GL {
+namespace gl {
 
-class Initializer : public DesignPatterns::Singleton<Initializer> {
+class Initializer : public designPatterns::Singleton<Initializer> {
  public:
   struct Info {
-    int major_version;
-    int minor_version;
+    int majorVersion;
+    int minorVersion;
   };
 
-  explicit Initializer(int major_version = 4, int minor_version = 3);
+  explicit Initializer(int majorVersion = 4, int minorVersion = 3);
   ~Initializer() override;
 
   void initWindowSystem();
   void initGLLoader();
 
  private:
-  Info m_info;
+  Info mInfo;
 
-  bool m_is_inited_window_system;
-  bool m_is_inited_gl_loader;
+  bool mIsInitedWindowSystem;
+  bool mIsInitedGlLoader;
 };
 
 }

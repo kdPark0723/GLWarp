@@ -5,7 +5,7 @@
 
 int main() {
   try {
-    GL::Window window{"Draw Triangle", 1024, 768};
+    gl::Window window{"Draw Triangle", 1024, 768};
     Renderer renderer{window};
 
     renderer.run();

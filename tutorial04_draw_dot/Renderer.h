@@ -9,15 +9,15 @@
 #include "../include/Program.h"
 #include "../include/VertexArray.h"
 
-class Renderer : public GL::Renderer {
+class Renderer : public gl::Renderer {
  public:
-  explicit Renderer(GL::Window& window);
+  explicit Renderer(gl::Window &window);
   ~Renderer() override;
 
-  void render(double current_time) override;
+  void render(double currentTime) override;
  private:
-  GL::Program m_program;
-  GL::VertexArray<1> m_point;
+  gl::Program mProgram;
+  gl::VertexArray<1> mPoint;
 };
 
 #endif //GLFWPROJECWARPER_RENDERER_H

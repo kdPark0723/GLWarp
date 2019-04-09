@@ -15,82 +15,82 @@
 #include "../include/ErrorHandel.h"
 
 template <unsigned int T>
-GL::Shader<T>::Shader(std::string& route)
-  : m_route{route}, m_data{} {
+gl::Shader<T>::Shader(std::string &route)
+  : mRoute{route}, mData{} {
   init();
 }
 
 template <unsigned int T>
-GL::Shader<T>::Shader(std::string&& route)
-  : m_route{route}, m_data{} {
+gl::Shader<T>::Shader(std::string &&route)
+  : mRoute{route}, mData{} {
   init();
 }
 
 template <unsigned int T>
-GL::Shader<T>::~Shader() {
-  glDeleteShader(m_data);
+gl::Shader<T>::~Shader() {
+  glDeleteShader(mData);
 }
 
 template <unsigned int T>
-void GL::Shader<T>::compile() {
-  glCompileShader(m_data);
+void gl::Shader<T>::compile() {
+  glCompileShader(mData);
 
   int result;
   int info_log_length;
 
-  glGetShaderiv(m_data, GL_COMPILE_STATUS, &result);
-  glGetShaderiv(m_data, GL_INFO_LOG_LENGTH, &info_log_length);
+  glGetShaderiv(mData, GL_COMPILE_STATUS, &result);
+  glGetShaderiv(mData, GL_INFO_LOG_LENGTH, &info_log_length);
   if (info_log_length > 0) {
     std::string error_message{};
-    error_message.resize(static_cast<unsigned long>(info_log_length + 1));
+    error_message.resize(info_log_length + 1);
 
-    glGetShaderInfoLog(m_data, info_log_length, nullptr, (GLchar*)(error_message.data()));
-    errorCallback(0, error_message.data());
+    glGetShaderInfoLog(mData, info_log_length, nullptr, (GLchar *) (error_message.data()));
+    errorHandle(Error::GL, error_message);
   }
 }
 
 template <unsigned int T>
-unsigned int GL::Shader<T>::data() const {
-  if (!m_data) {
-    errorCallback(0, "Shader should be compiled before to get data.");
+unsigned int gl::Shader<T>::data() const {
+  if (!mData) {
+    errorHandle(Error::GL, "Shader should be compiled before to get data.");
     return 0;
   }
-  return m_data;
+  return mData;
 }
 
 // // Todo 가져온 쉐이더 코드를 수정하면 실제 파일도 수정되게 만들기
 // template <unsigned int T>
-// std::string GL::Shader<T>::getShaderCode() {
-//   return static_cast<std::string>(const_cast<const GL::Shader<T>&>(*this).getShaderCode());
+// std::string gl::Shader<T>::getShaderCode() {
+//   return static_cast<std::string>(const_cast<const gl::Shader<T>&>(*this).getShaderCode());
 // }
 
 template <unsigned int T>
-const std::string GL::Shader<T>::getShaderCode() const {
-  std::string shader_code;
-  std::ifstream shader_stream{m_route.c_str()};
+const std::string gl::Shader<T>::getShaderCode() const {
+  std::string shaderCode;
+  std::ifstream shaderStream{mRoute.c_str()};
 
-  if (shader_stream.is_open()) {
+  if (shaderStream.is_open()) {
     std::stringstream sstr;
 
-    sstr << shader_stream.rdbuf();
-    shader_code = sstr.str();
+    sstr << shaderStream.rdbuf();
+    shaderCode = sstr.str();
 
-    shader_stream.close();
+    shaderStream.close();
   } else {
-    errorCallback(0, "Can't read shader's source file");
+    errorHandle(Error::GL, "Can't read shader's source file");
     return nullptr;
   }
 
-  return shader_code;
+  return shaderCode;
 }
 
 template <unsigned int T>
-void GL::Shader<T>::init() {
-  m_data = glCreateShader(T);
+void gl::Shader<T>::init() {
+  mData = glCreateShader(T);
 
-  const std::string shader_code{std::move(getShaderCode())};
-  const char* shader_code_c = shader_code.data();
-  glShaderSource(m_data, 1, &shader_code_c, nullptr);
+  const std::string shaderCode{std::move(getShaderCode())};
+  const char *pShaderCode = shaderCode.data();
+  glShaderSource(mData, 1, &pShaderCode, nullptr);
 }
 
 #endif

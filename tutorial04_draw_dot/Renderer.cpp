@@ -13,30 +13,30 @@
 #include "../include/ColorBuffer.h"
 #include "../include/Point.h"
 
-Renderer::Renderer(GL::Window &window)
-  : GL::Renderer{window}, m_program{}, m_point{} {
+Renderer::Renderer(gl::Window &window)
+  : gl::Renderer{window}, mProgram{}, mPoint{} {
 
-  GL::VertexShader vertex_shader{"./shaders/simpleVertexShader.vertexshader"};
-  vertex_shader.compile();
-  GL::FragmentShader fragment_shader{"./shaders/simpleFragmentShader.fragmentshader"};
-  fragment_shader.compile();
+  gl::VertexShader vertexShader{"./shaders/simpleVertexShader.vertexshader"};
+  vertexShader.compile();
+  gl::FragmentShader fragmentShader{"./shaders/simpleFragmentShader.fragmentshader"};
+  fragmentShader.compile();
 
-  m_program.attach(vertex_shader)
-    .attach(fragment_shader)
+  mProgram.attach(vertexShader)
+    .attach(fragmentShader)
     .link();
 
-  m_point.bind();
+  mPoint.bind();
 
-  GL::Point::getInstance().size(40.0f);
+  gl::point().size(40.0f);
 }
 
 Renderer::~Renderer() = default;
 
-void Renderer::render(double current_time) {
+void Renderer::render(double) {
   static const float black[] = {0.0f, 0.0f, 0.0f, 1.0f};
-  GL::ColorBuffer::getInstance().clear(black);
+  gl::colorBuffer().clear(black);
 
-  m_program.use();
+  mProgram.use();
 
-  GL::Arrays<GL_POINTS>::getInstance().draw(0, 1);
+  gl::Arrays<GL_POINTS>::getInstance().draw(0, 1);
 }

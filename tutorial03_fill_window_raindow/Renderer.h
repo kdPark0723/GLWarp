@@ -7,11 +7,11 @@
 
 #include "../include/Renderer.h"
 
-class Renderer : public GL::Renderer {
+class Renderer : public gl::Renderer {
  public:
-  explicit Renderer(GL::Window& window);
+  explicit Renderer(gl::Window &window);
 
-  virtual void render(double current_time);
+  void render(double currentTime) override;
 };
 
 #endif //GLFWPROJECWARPER_RENDERER_H

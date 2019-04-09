@@ -7,7 +7,7 @@
 
 #include "Shader.h"
 
-namespace GL {
+namespace gl {
 
 class Program {
  public:
@@ -20,7 +20,7 @@ class Program {
   inline void use();
 
  private:
-  unsigned int m_data;
+  unsigned int mData;
 };
 
 }

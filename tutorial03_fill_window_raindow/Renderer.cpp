@@ -9,12 +9,12 @@
 #include <iostream>
 #include <cmath>
 
-Renderer::Renderer(GL::Window &window) : GL::Renderer{window} {
+Renderer::Renderer(gl::Window &window) : gl::Renderer{window} {
 }
 
 void Renderer::render(double current_time) {
-  const GLfloat COLOR[] = {static_cast<float>(std::sin(current_time)) * 0.5f + 0.5f,
+  const GLfloat color[] = {static_cast<float>(std::sin(current_time)) * 0.5f + 0.5f,
                            static_cast<float>(std::cos(current_time)) * 0.5f + 0.5f,
                            .0f, 1.0f};
-  glClearBufferfv(GL_COLOR, 0, COLOR);
+  glClearBufferfv(GL_COLOR, 0, color);
 }

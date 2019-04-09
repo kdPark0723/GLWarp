@@ -10,20 +10,20 @@
 #include "../include/InternalGraphicLib.h"
 
 template<size_t N>
-GL::VertexArray<N>::VertexArray() {
-  glGenVertexArrays(static_cast<GLenum>(N), &m_data);
+gl::VertexArray<N>::VertexArray() {
+  glGenVertexArrays(static_cast<GLenum>(N), &mData);
 }
 template<size_t N>
-GL::VertexArray<N>::~VertexArray() {
-  glDeleteVertexArrays(static_cast<GLenum>(N), &m_data);
+gl::VertexArray<N>::~VertexArray() {
+  glDeleteVertexArrays(static_cast<GLenum>(N), &mData);
 }
 template<size_t N>
-void GL::VertexArray<N>::bind() {
-  glBindVertexArray(static_cast<GLenum>(m_data));
+void gl::VertexArray<N>::bind() {
+  glBindVertexArray(static_cast<GLenum>(mData));
 }
 
 template<unsigned int Mode>
-void GL::Arrays<Mode>::draw(int first, size_t count) {
+void gl::Arrays<Mode>::draw(int first, size_t count) {
   glDrawArrays(static_cast<GLenum>(Mode), static_cast<GLint>(first), static_cast<GLsizei>(count));
 }
 #endif

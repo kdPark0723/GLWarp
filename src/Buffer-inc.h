@@ -10,15 +10,15 @@
 #include "../include/InternalGraphicLib.h"
 
 template<unsigned int T>
-GL::Buffer<T>::Buffer()
-  :m_data{0} {
+gl::Buffer<T>::Buffer()
+  :mData{0} {
 }
 
 template<unsigned int T>
 template<size_t N>
-void GL::Buffer<T>::clear(const float (&value)[N]) {
-  const GLfloat* value_p = value;
-  glClearBufferfv(static_cast<GLenum>(T), static_cast<GLint>(m_data), value_p);
+void gl::Buffer<T>::clear(const float (&value)[N]) {
+  const GLfloat *pValue = value;
+  glClearBufferfv(static_cast<GLenum>(T), static_cast<GLint>(mData), pValue);
 }
 
 #endif //GLWARPER_BUFFER_INC_H

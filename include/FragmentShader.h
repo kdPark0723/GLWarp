@@ -9,7 +9,7 @@
 
 #include "Shader.h"
 
-namespace GL {
+namespace gl {
 
 using FragmentShader = Shader<GL_FRAGMENT_SHADER>;
 

@@ -13,69 +13,69 @@
 #include "../include/Initializer.h"
 #include "../include/ErrorHandel.h"
 
-GL::Window::Window(std::string& title, int window_width, int window_height)
-  : m_info{}, m_window{} {
-  m_info.title = title;
-  m_info.window_width = window_width;
-  m_info.window_height = window_height;
+gl::Window::Window(std::string &title, int windowWidth, int windowHeight)
+  : mInfo{}, mWindow{} {
+  mInfo.title = title;
+  mInfo.windowWidth = windowWidth;
+  mInfo.windowHeight = windowHeight;
 
   Initializer::getInstance().initWindowSystem();
   init();
   Initializer::getInstance().initGLLoader();
 }
-GL::Window::Window(std::string&& title, int window_width, int window_height)
-  : m_info{}, m_window{} {
-  m_info.title = title;
-  m_info.window_width = window_width;
-  m_info.window_height = window_height;
+gl::Window::Window(std::string &&title, int windowWidth, int windowHeight)
+  : mInfo{}, mWindow{} {
+  mInfo.title = title;
+  mInfo.windowWidth = windowWidth;
+  mInfo.windowHeight = windowHeight;
 
   Initializer::getInstance().initWindowSystem();
   init();
   Initializer::getInstance().initGLLoader();
 }
 
-GL::Window::~Window() {
-  glfwDestroyWindow(static_cast<GLFWwindow*>(m_window));
+gl::Window::~Window() {
+  glfwDestroyWindow(static_cast<GLFWwindow *>(mWindow));
 }
 
-int GL::Window::getWigth() const noexcept {
-  return m_info.window_width;
+int gl::Window::getWigth() const noexcept {
+  return mInfo.windowWidth;
 }
-int GL::Window::getHeight() const noexcept {
-  return m_info.window_height;
+int gl::Window::getHeight() const noexcept {
+  return mInfo.windowHeight;
 }
-void GL::Window::setWigth(int width) noexcept {
-  m_info.window_width = width;
+void gl::Window::setWigth(int width) noexcept {
+  mInfo.windowWidth = width;
 }
-void GL::Window::setHeight(int height) noexcept {
-  m_info.window_height = height;
-}
-
-void *GL::Window::getWindowContext() {
-  return m_window;
+void gl::Window::setHeight(int height) noexcept {
+  mInfo.windowHeight = height;
 }
 
-void GL::Window::update() {
+void *gl::Window::getWindowContext() {
+  return mWindow;
+}
+
+void gl::Window::update() {
   // 버퍼들을 교체
-  glfwSwapBuffers(static_cast<GLFWwindow*>(m_window));
+  glfwSwapBuffers(static_cast<GLFWwindow *>(mWindow));
   glfwPollEvents();
 }
 
-bool GL::Window::isClose() {
-  return glfwGetKey(static_cast<GLFWwindow*>(m_window), GLFW_KEY_ESCAPE ) != GLFW_PRESS &&
-    glfwWindowShouldClose(static_cast<GLFWwindow*>(m_window)) == 0;
+bool gl::Window::isClose() {
+  return glfwGetKey(static_cast<GLFWwindow *>(mWindow), GLFW_KEY_ESCAPE) != GLFW_PRESS &&
+    glfwWindowShouldClose(static_cast<GLFWwindow *>(mWindow)) == 0;
 }
 
-void GL::Window::init() {
-  m_window = glfwCreateWindow(m_info.window_width, m_info.window_height, m_info.title.c_str(), nullptr, nullptr);
-  if (m_window == nullptr) {
-    errorCallback(0, "Failed to open GLFW window.");
+void gl::Window::init() {
+  mWindow = glfwCreateWindow(mInfo.windowWidth, mInfo.windowHeight, mInfo.title.c_str(), nullptr, nullptr);
+  if (mWindow == nullptr) {
+    errorHandle(0, "Failed to open GLFW window.");
     return;
   }
-  glfwMakeContextCurrent(static_cast<GLFWwindow*>(m_window));
+  glfwMakeContextCurrent(static_cast<GLFWwindow *>(mWindow));
 
   // Ensure we can capture the escape key being pressed below
-  glfwSetInputMode(static_cast<GLFWwindow*>(m_window), GLFW_STICKY_KEYS, GL_TRUE);
+  glfwSetInputMode(static_cast<GLFWwindow *>(mWindow), GLFW_STICKY_KEYS, GL_TRUE);
 }
 
 #endif

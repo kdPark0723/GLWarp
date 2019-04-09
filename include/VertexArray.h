@@ -7,7 +7,7 @@
 
 #include "Singleton.h"
 
-namespace GL {
+namespace gl {
 
 template <size_t N>
 class VertexArray {
@@ -18,12 +18,12 @@ class VertexArray {
   inline void bind();
 
  private:
-  unsigned int m_data{};
+  unsigned int mData{};
 };
 
 // Todo 인터페이스 개선 하기!!!
 template <unsigned int Mode>
-class Arrays : public DesignPatterns::Singleton<Arrays<Mode>> {
+class Arrays : public designPatterns::Singleton<Arrays<Mode>> {
  public:
   void draw(int first, size_t count);
 };

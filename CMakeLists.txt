@@ -45,9 +45,10 @@ set(GL_WARP_SOURSE
 	src/Window.cpp
 	src/VertexArray-inc.h
 	src/Buffer-inc.h
-	src/Point-inc.h)
+	src/Point-inc.h src/ColorBuffer-inc.h)
 
 set(GL_WARP_HEADERS
+	include/Assert.h
 	include/ErrorHandel.h
 	include/Initializer.h
 	include/Window.h

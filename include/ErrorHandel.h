@@ -5,10 +5,18 @@
 #ifndef GLWARPER_ERRORHANDEL_H
 #define GLWARPER_ERRORHANDEL_H
 
-namespace GL {
+#include <string>
+
+namespace gl {
+
+enum Error {
+  GLFW,
+  GL3W,
+  GL,
+};
 
 // Todo 인터페이스 개선!!
-inline void errorCallback(int error, const char* description);
+inline void errorHandle(int error, const std::string &description);
 
 }
 

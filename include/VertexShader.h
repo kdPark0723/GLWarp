@@ -9,7 +9,7 @@
 
 #include "Shader.h"
 
-namespace GL {
+namespace gl {
 
 using VertexShader = Shader<GL_VERTEX_SHADER>;
 

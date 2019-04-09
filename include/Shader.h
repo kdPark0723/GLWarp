@@ -7,7 +7,7 @@
 
 #include <string>
 
-namespace GL {
+namespace gl {
 
 template <unsigned int T>
 class Shader {
@@ -20,8 +20,8 @@ class Shader {
   inline unsigned int data() const;
 
  protected:
-  std::string m_route;
-  unsigned int m_data;
+  std::string mRoute;
+  unsigned int mData;
 
   const std::string getShaderCode() const;
   // std::string getShaderCode();

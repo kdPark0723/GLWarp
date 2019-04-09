@@ -5,7 +5,7 @@
 #ifndef GLWARPER_SINGLETON_H
 #define GLWARPER_SINGLETON_H
 
-namespace DesignPatterns {
+namespace designPatterns {
 
 template <typename T>
 class Singleton {

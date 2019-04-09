@@ -9,23 +9,23 @@
 
 #include "../include/InternalGraphicLib.h"
 
-GL::Program::Program() {
-  m_data = static_cast<unsigned int>(glCreateProgram());
+gl::Program::Program() {
+  mData = static_cast<unsigned int>(glCreateProgram());
 }
-GL::Program::~Program() {
-  glDeleteProgram(static_cast<GLuint>(m_data));
+gl::Program::~Program() {
+  glDeleteProgram(static_cast<GLuint>(mData));
 }
 
-void GL::Program::link() {
-  glLinkProgram(static_cast<GLuint>(m_data));
+void gl::Program::link() {
+  glLinkProgram(static_cast<GLuint>(mData));
 }
-void GL::Program::use() {
-  glUseProgram(static_cast<GLuint>(m_data));
+void gl::Program::use() {
+  glUseProgram(static_cast<GLuint>(mData));
 }
 
 template<unsigned int type>
-GL::Program &GL::Program::attach(GL::Shader<type> &shader) {
-  glAttachShader(static_cast<GLuint>(m_data), static_cast<GLuint>(shader.data()));
+gl::Program &gl::Program::attach(gl::Shader<type> &shader) {
+  glAttachShader(static_cast<GLuint>(mData), static_cast<GLuint>(shader.data()));
 
   return *this;
 }

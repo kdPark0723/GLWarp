@@ -9,7 +9,7 @@
 
 #include "Window.h"
 
-namespace GL {
+namespace gl {
 
 class Renderer {
  public:
@@ -17,12 +17,12 @@ class Renderer {
   virtual ~Renderer();
 
   virtual void run();
-  virtual void render(double current_time);
+  virtual void render(double currentTime);
 
  protected:
-  Window* m_window;
+  Window *mWindow;
 
-  double m_frame;
+  double mFrame;
 };
 
 }

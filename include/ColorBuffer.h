@@ -7,10 +7,14 @@
 
 #include "Buffer.h"
 
-namespace GL {
+namespace gl {
 
 using ColorBuffer = Buffer<static_cast<unsigned int>(GL_COLOR)>;
 
+inline ColorBuffer &colorBuffer();
+
 }
+
+#include "../src/ColorBuffer-inc.h"
 
 #endif //GLWARPER_COLORBUFFER_H
