@@ -2,12 +2,10 @@
 // Created by siyualbak on 19. 4. 7.
 //
 
-#ifndef GLFWPROJECWARPER_WINDOW_H
-#define GLFWPROJECWARPER_WINDOW_H
+#ifndef GLWARPER_WINDOW_H
+#define GLWARPER_WINDOW_H
 
 #include <string>
-
-#include "Initializer.h"
 
 namespace GL {
 
@@ -44,4 +42,4 @@ class Window {
 
 }
 
-#endif //GLFWPROJECWARPER_WINDOW_H
+#endif //GLWARPER_WINDOW_H

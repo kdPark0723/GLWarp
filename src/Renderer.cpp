@@ -4,8 +4,6 @@
 
 #include "../include/Renderer.h"
 
-#include "../include/InternalGraphicLib.h"
-
 GL::Renderer::Renderer(Window& window)
   : m_window{&window}, m_frame{} {
 

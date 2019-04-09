@@ -42,7 +42,7 @@ void GL::Shader<T>::compile() {
   glGetShaderiv(m_data, GL_INFO_LOG_LENGTH, &info_log_length);
   if (info_log_length > 0) {
     std::string error_message{};
-    error_message.resize(info_log_length+1);
+    error_message.resize(static_cast<unsigned long>(info_log_length + 1));
 
     glGetShaderInfoLog(m_data, info_log_length, nullptr, (GLchar*)(error_message.data()));
     errorCallback(0, error_message.data());
@@ -74,7 +74,7 @@ const std::string GL::Shader<T>::getShaderCode() const {
     shader_stream.close();
   } else {
     errorCallback(0, "Can't read shader's source file");
-    return 0;
+    return nullptr;
   }
 
   return shader_code;

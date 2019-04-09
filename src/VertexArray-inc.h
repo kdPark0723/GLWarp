@@ -11,11 +11,11 @@
 
 template<size_t N>
 GL::VertexArray<N>::VertexArray() {
-  glGenVertexArrays(static_cast<GLenum>(N), static_cast<GLuint *>(&m_data));
+  glGenVertexArrays(static_cast<GLenum>(N), &m_data);
 }
 template<size_t N>
 GL::VertexArray<N>::~VertexArray() {
-  glDeleteVertexArrays(static_cast<GLenum>(N), static_cast<GLuint *>(&m_data));
+  glDeleteVertexArrays(static_cast<GLenum>(N), &m_data);
 }
 template<size_t N>
 void GL::VertexArray<N>::bind() {

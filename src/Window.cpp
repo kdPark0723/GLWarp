@@ -14,7 +14,7 @@
 #include "../include/ErrorHandel.h"
 
 GL::Window::Window(std::string& title, int window_width, int window_height)
-  : m_info {} {
+  : m_info{}, m_window{} {
   m_info.title = title;
   m_info.window_width = window_width;
   m_info.window_height = window_height;
@@ -24,7 +24,7 @@ GL::Window::Window(std::string& title, int window_width, int window_height)
   Initializer::getInstance().initGLLoader();
 }
 GL::Window::Window(std::string&& title, int window_width, int window_height)
-  : m_info {} {
+  : m_info{}, m_window{} {
   m_info.title = title;
   m_info.window_width = window_width;
   m_info.window_height = window_height;
