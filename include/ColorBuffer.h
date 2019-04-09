@@ -11,7 +11,7 @@ namespace gl {
 
 using ColorBuffer = Buffer<static_cast<unsigned int>(GL_COLOR)>;
 
-inline ColorBuffer &colorBuffer();
+inline ColorBuffer& colorBuffer();
 
 }
 

@@ -38,14 +38,9 @@ include_directories(
 
 set(GL_WARP_SOURSE
     src/Initializer.cpp
-	src/Shader-inc.h
-	src/Program-inc.h
-	src/ErrorHandel-inc.h
 	src/Renderer.cpp
 	src/Window.cpp
-	src/VertexArray-inc.h
-	src/Buffer-inc.h
-	src/Point-inc.h src/ColorBuffer-inc.h)
+	)
 
 set(GL_WARP_HEADERS
 	include/Assert.h
@@ -61,7 +56,15 @@ set(GL_WARP_HEADERS
 	include/InternalGraphicLib.h
 	include/Buffer.h
 	include/Point.h
-	include/ColorBuffer.h)
+	include/ColorBuffer.h
+	src/Shader-inc.h
+	src/Program-inc.h
+	src/ErrorHandel-inc.h
+	src/VertexArray-inc.h
+	src/Buffer-inc.h
+	src/Point-inc.h
+	src/ColorBuffer-inc.h
+	src/Initializer-inc.h)
 
 add_library(GL_WARP STATIC
 	${GL_WARP_SOURSE}

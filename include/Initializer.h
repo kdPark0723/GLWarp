@@ -29,6 +29,8 @@ class Initializer : public designPatterns::Singleton<Initializer> {
   bool mIsInitedGlLoader;
 };
 
+inline Initializer& initializer();
+
 }
 
 #endif //GLFWPROJECWARPER_INITIALIZER_H

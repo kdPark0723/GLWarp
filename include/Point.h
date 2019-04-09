@@ -15,7 +15,7 @@ class Point : public designPatterns::Singleton<Point> {
   inline void size(float size);
 };
 
-inline Point &point();
+inline Point& point();
 
 }
 

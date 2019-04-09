@@ -7,8 +7,8 @@
 
 #include "../include/ColorBuffer.h"
 
-gl::ColorBuffer &colorBuffer() {
-  gl::ColorBuffer::getInstance();
+gl::ColorBuffer& gl::colorBuffer() {
+  return gl::ColorBuffer::getInstance();
 }
 
 #endif //GLWARPER_COLORBUFFER_INC_H

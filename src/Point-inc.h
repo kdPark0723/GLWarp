@@ -13,7 +13,7 @@ void gl::Point::size(float size) {
   glPointSize(static_cast<GLfloat>(size));
 }
 
-gl::Point &point() {
+gl::Point& gl::point() {
   return gl::Point::getInstance();
 }
 
