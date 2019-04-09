@@ -69,7 +69,7 @@ bool GL::Window::isClose() {
 void GL::Window::init() {
   m_window = glfwCreateWindow(m_info.window_width, m_info.window_height, m_info.title.c_str(), nullptr, nullptr);
   if (m_window == nullptr) {
-    errorCallback(0, "Failed to open GLFW window. If you have an Intel GPU, they are not 4.3 compatible.");
+    errorCallback(0, "Failed to open GLFW window.");
     return;
   }
   glfwMakeContextCurrent(static_cast<GLFWwindow*>(m_window));

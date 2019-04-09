@@ -11,7 +11,7 @@
 #include <string>
 
 void GL::errorCallback(int error, const char* description) {
-  std::string error_description{"GL Error: "};
+  std::string error_description{"Error: "};
   error_description.append(description);
 
   throw std::runtime_error{error_description};

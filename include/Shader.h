@@ -17,7 +17,7 @@ class Shader {
   inline virtual ~Shader();
 
   inline virtual void compile();
-  inline unsigned int data() const noexcept;
+  inline unsigned int data() const;
 
  protected:
   std::string m_route;

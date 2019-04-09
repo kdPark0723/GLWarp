@@ -92,7 +92,8 @@ target_link_libraries(tutorial01_first_window
 # Tutorial 2
 add_executable(tutorial02_fill_window_red
 	tutorial02_fill_window_red/tutorial02.cpp
-	tutorial02_fill_window_red/Renderer.h tutorial02_fill_window_red/Renderer.cpp
+    tutorial02_fill_window_red/Renderer.h
+    tutorial02_fill_window_red/Renderer.cpp
 	)
 target_link_libraries(tutorial02_fill_window_red
 	${ALL_LIBS}
@@ -101,7 +102,8 @@ target_link_libraries(tutorial02_fill_window_red
 # Tutorial 3
 add_executable(tutorial03_fill_window_raindow
 	tutorial03_fill_window_raindow/tutorial03.cpp
-	tutorial03_fill_window_raindow/Renderer.h tutorial03_fill_window_raindow/Renderer.cpp
+    tutorial03_fill_window_raindow/Renderer.h
+    tutorial03_fill_window_raindow/Renderer.cpp
 	)
 target_link_libraries(tutorial03_fill_window_raindow
 	${ALL_LIBS}
@@ -110,7 +112,8 @@ target_link_libraries(tutorial03_fill_window_raindow
 # Tutorial 4
 add_executable(tutorial04_draw_dot
 	tutorial04_draw_dot/tutorial04.cpp
-	tutorial04_draw_dot/Renderer.h tutorial04_draw_dot/Renderer.cpp
+    tutorial04_draw_dot/Renderer.h
+    tutorial04_draw_dot/Renderer.cpp
 	)
 target_link_libraries(tutorial04_draw_dot
 	${ALL_LIBS}
@@ -119,7 +122,8 @@ target_link_libraries(tutorial04_draw_dot
 # Tutorial 5
 add_executable(tutorial05_draw_triangle
 	tutorial05_draw_triangle/tutorial05.cpp
-	tutorial05_draw_triangle/Renderer.h tutorial05_draw_triangle/Renderer.cpp
+    tutorial05_draw_triangle/Renderer.h
+    tutorial05_draw_triangle/Renderer.cpp
 	)
 target_link_libraries(tutorial05_draw_triangle
 	${ALL_LIBS}
@@ -153,22 +157,22 @@ SOURCE_GROUP(shaders REGULAR_EXPRESSION ".*/.*shader$" )
 
 #
 if (NOT ${CMAKE_GENERATOR} MATCHES "Xcode" )
-#add_custom_command(
-#   TARGET tutorial01_first_window POST_BUILD
-#   COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_CFG_INTDIR}/tutorial01_first_window${CMAKE_EXECUTABLE_SUFFIX}" "${CMAKE_CURRENT_SOURCE_DIR}/tutorial01_first_window/"
-#)
-#add_custom_command(
-#	TARGET tutorial02_fill_window_red POST_BUILD
-#	COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_CFG_INTDIR}/tutorial02_fill_window_red${CMAKE_EXECUTABLE_SUFFIX}" "${CMAKE_CURRENT_SOURCE_DIR}/tutorial02_fill_window_red/"
-#)
-#add_custom_command(
-#	TARGET tutorial03_fill_window_raindow POST_BUILD
-#	COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_CFG_INTDIR}/tutorial03_fill_window_raindow${CMAKE_EXECUTABLE_SUFFIX}" "${CMAKE_CURRENT_SOURCE_DIR}/tutorial03_fill_window_raindow/"
-#)
-#add_custom_command(
-#	TARGET tutorial04_draw_dot POST_BUILD
-#	COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_CFG_INTDIR}/tutorial04_draw_dot${CMAKE_EXECUTABLE_SUFFIX}" "${CMAKE_CURRENT_SOURCE_DIR}/tutorial04_draw_dot/"
-#)
+    #add_custom_command(
+    #   TARGET tutorial01_first_window POST_BUILD
+    #   COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_CFG_INTDIR}/tutorial01_first_window${CMAKE_EXECUTABLE_SUFFIX}" "${CMAKE_CURRENT_SOURCE_DIR}/tutorial01_first_window/"
+    #)
+    #add_custom_command(
+    #	TARGET tutorial02_fill_window_red POST_BUILD
+    #	COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_CFG_INTDIR}/tutorial02_fill_window_red${CMAKE_EXECUTABLE_SUFFIX}" "${CMAKE_CURRENT_SOURCE_DIR}/tutorial02_fill_window_red/"
+    #)
+    #add_custom_command(
+    #	TARGET tutorial03_fill_window_raindow POST_BUILD
+    #	COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_CFG_INTDIR}/tutorial03_fill_window_raindow${CMAKE_EXECUTABLE_SUFFIX}" "${CMAKE_CURRENT_SOURCE_DIR}/tutorial03_fill_window_raindow/"
+    #)
+    #add_custom_command(
+    #	TARGET tutorial04_draw_dot POST_BUILD
+    #	COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_CFG_INTDIR}/tutorial04_draw_dot${CMAKE_EXECUTABLE_SUFFIX}" "${CMAKE_CURRENT_SOURCE_DIR}/tutorial04_draw_dot/"
+    #)
 
 elseif (${CMAKE_GENERATOR} MATCHES "Xcode" )
 

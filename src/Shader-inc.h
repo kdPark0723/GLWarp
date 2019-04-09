@@ -50,7 +50,11 @@ void GL::Shader<T>::compile() {
 }
 
 template <unsigned int T>
-unsigned int GL::Shader<T>::data() const noexcept{
+unsigned int GL::Shader<T>::data() const {
+  if (!m_data) {
+    errorCallback(0, "Shader should be compiled before to get data.");
+    return 0;
+  }
   return m_data;
 }
 
