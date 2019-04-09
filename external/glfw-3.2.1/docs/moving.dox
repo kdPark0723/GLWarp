@@ -23,7 +23,7 @@ Unix-like systems, where it uses the
 
 @par Old syntax
 @code
-#include <GL/glfw.h>
+#include <gl/glfw.h>
 @endcode
 
 @par New syntax
@@ -438,7 +438,7 @@ defining `GLFW_INCLUDE_GLU` before the inclusion of the GLFW header.
 
 @par Old syntax
 @code
-#include <GL/glfw.h>
+#include <gl/glfw.h>
 @endcode
 
 @par New syntax

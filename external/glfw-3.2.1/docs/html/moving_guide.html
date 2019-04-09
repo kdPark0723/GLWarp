@@ -119,7 +119,13 @@ Changed and removed features</h1>
 <h2><a class="anchor" id="moving_renamed_files"></a>
 Renamed library and header file</h2>
 <p>The GLFW 3 header is named <a class="el" href="glfw3_8h.html">glfw3.h</a> and moved to the <code>GLFW</code> directory, to avoid collisions with the headers of other major versions. Similarly, the GLFW 3 library is named <code>glfw3,</code> except when it's installed as a shared library on Unix-like systems, where it uses the <a href="https://en.wikipedia.org/wiki/soname">soname</a> <code>libglfw.so.3</code>.</p>
-<dl class="section user"><dt>Old syntax</dt><dd><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;GL/glfw.h&gt;</span></div></div><!-- fragment --></dd></dl>
+    <dl class="section user">
+        <dt>Old syntax</dt>
+        <dd>
+            <div class="fragment">
+                <div class="line"><span class="preprocessor">#include &lt;gl/glfw.h&gt;</span></div>
+            </div><!-- fragment --></dd>
+    </dl>
 <dl class="section user"><dt>New syntax</dt><dd><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="glfw3_8h.html">GLFW/glfw3.h</a>&gt;</span></div></div><!-- fragment --></dd></dl>
 <h2><a class="anchor" id="moving_threads"></a>
 Removal of threading functions</h2>
@@ -227,7 +233,13 @@ Automatic termination</h2>
 <h2><a class="anchor" id="moving_glu"></a>
 GLU header inclusion</h2>
 <p>GLFW 3 does not by default include the GLU header and GLU itself has been deprecated by <a href="https://en.wikipedia.org/wiki/Khronos_Group">Khronos</a>. <b>New projects should not use GLU</b>, but if you need it for legacy code that has been moved to GLFW 3, you can request that the GLFW header includes it by defining <code>GLFW_INCLUDE_GLU</code> before the inclusion of the GLFW header.</p>
-<dl class="section user"><dt>Old syntax</dt><dd><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;GL/glfw.h&gt;</span></div></div><!-- fragment --></dd></dl>
+    <dl class="section user">
+        <dt>Old syntax</dt>
+        <dd>
+            <div class="fragment">
+                <div class="line"><span class="preprocessor">#include &lt;gl/glfw.h&gt;</span></div>
+            </div><!-- fragment --></dd>
+    </dl>
 <dl class="section user"><dt>New syntax</dt><dd><div class="fragment"><div class="line"><span class="preprocessor">#define GLFW_INCLUDE_GLU</span></div><div class="line"><span class="preprocessor">#include &lt;GLFW/glfw3.h&gt;</span></div></div><!-- fragment --></dd></dl>
 <h1><a class="anchor" id="moving_tables"></a>
 Name change tables</h1>

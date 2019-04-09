@@ -22,12 +22,12 @@ It is also compatible with Python 3.x.
 Example
 -------
 
-Here is a simple example of using gl3w_ with glut. Note that GL/gl3w.h must be
+Here is a simple example of using gl3w_ with glut. Note that gl/gl3w.h must be
 included before any other OpenGL related headers::
 
     #include <stdio.h>
-    #include <GL/gl3w.h>
-    #include <GL/glut.h>
+    #include <gl/gl3w.h>
+    #include <gl/glut.h>
 
     // ...
 
@@ -120,7 +120,7 @@ OpenGL_ is a registered trademark of SGI_.
 
 .. _gl3w: https://github.com/skaslev/gl3w
 .. _gl3w_gen.py: https://github.com/skaslev/gl3w/blob/master/gl3w_gen.py
-.. _glcorearb.h: https://www.opengl.org/registry/api/GL/glcorearb.h
+.. _glcorearb.h: https://www.opengl.org/registry/api/gl/glcorearb.h
 .. _OpenGL: http://www.opengl.org/
 .. _Khronos: http://www.khronos.org/
 .. _SGI: http://www.sgi.com/

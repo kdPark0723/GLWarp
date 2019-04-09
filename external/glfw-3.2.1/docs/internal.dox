@@ -16,7 +16,7 @@ files contain no platform-specific code.  This code usually ends up calling the
 platform and internal interfaces to do the actual work.
 
 The public interface uses the OpenGL naming conventions except with GLFW and
-glfw instead of GL and gl.  For struct members, where OpenGL sets no precedent,
+glfw instead of gl and gl.  For struct members, where OpenGL sets no precedent,
 it use headless camel case.
 
 Examples: @ref glfwCreateWindow, @ref GLFWwindow, @ref GLFWvidmode.redBits,
