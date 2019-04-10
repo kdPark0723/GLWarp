@@ -5,7 +5,7 @@
 #ifndef GLWARPER_FRAGMENTSHADER_H
 #define GLWARPER_FRAGMENTSHADER_H
 
-#include "InternalGraphicLib.h"
+#include "Lib.h"
 
 #include "Shader.h"
 

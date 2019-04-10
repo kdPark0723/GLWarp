@@ -4,7 +4,7 @@
 
 #include "include/Initializer.h"
 
-#include "../include/InternalGraphicLib.h"
+#include "../include/Lib.h"
 #include <GLFW/glfw3.h>
 #include <sstream>
 
@@ -17,8 +17,17 @@ void glfwErrorHandle(int error, const char *description) {
   gl::errorHandle(gl::Error::GLFW, stringStream.str());
 }
 
+#ifndef NDEBUG
+void glErrorHandle(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length,
+                   const GLchar *message, const void *userParam) {
+  // Print, log, whatever based on the enums and message
+  gl::errorHandle(gl::Error::GL, message);
+}
+#endif
+
+
 gl::Initializer::Initializer(int majorVersion, int minorVersion)
-  : mInfo{majorVersion, minorVersion}, mIsInitedWindowSystem{false}, mIsInitedGlLoader{false} {
+  : mInfo{majorVersion, minorVersion}, mIsInitedWindowSystem{false}, mIsInitedGlLoader{false}, mIsInitedGL{false} {
 }
 
 gl::Initializer::~Initializer() {
@@ -43,6 +52,10 @@ void gl::Initializer::initWindowSystem() {
   glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, mInfo.minorVersion);
   glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 
+#ifndef NDEBUG
+  glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GL_TRUE);
+#endif
+
   mIsInitedWindowSystem = true;
 }
 void gl::Initializer::initGLLoader() {
@@ -59,4 +72,25 @@ void gl::Initializer::initGLLoader() {
   }
 
   mIsInitedGlLoader = true;
+}
+
+void gl::Initializer::initGL() {
+  if (mIsInitedGL)
+    return;
+
+#ifndef NDEBUG
+  GLint flags;
+  glGetIntegerv(GL_CONTEXT_FLAGS, &flags);
+
+  if (flags & GL_CONTEXT_FLAG_DEBUG_BIT) {
+    glEnable(GL_DEBUG_OUTPUT);
+    glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
+    glDebugMessageCallback(glErrorHandle, NULL);
+
+    glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, NULL, GL_TRUE);
+  }
+  // It's a debug context
+#endif
+
+  mIsInitedGL = true;
 }

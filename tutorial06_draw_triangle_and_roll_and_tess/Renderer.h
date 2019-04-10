@@ -8,7 +8,6 @@
 #include "../include/Renderer.h"
 #include "../include/Program.h"
 #include "../include/VertexArray.h"
-#include "../include/Vertex.h"
 
 class Renderer : public gl::Renderer {
  public:

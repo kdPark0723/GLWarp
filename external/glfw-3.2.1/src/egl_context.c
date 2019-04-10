@@ -57,7 +57,7 @@ static const char* getEGLErrorString(EGLint error)
             return "The current surface of the calling thread is a window, pixel buffer or pixmap that is no longer valid";
         case EGL_BAD_DISPLAY:
             return "An EGLDisplay argument does not name a valid EGL display connection";
-      case EGL_BAD_SURFACE:return "An EGLSurface argument does not name a valid surface configured for gl rendering";
+      case EGL_BAD_SURFACE:return "An EGLSurface argument does not name a valid surface configured for GL rendering";
         case EGL_BAD_MATCH:
             return "Arguments are inconsistent";
         case EGL_BAD_PARAMETER:

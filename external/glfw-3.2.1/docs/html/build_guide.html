@@ -114,7 +114,7 @@ GLFW header option macros</h2>
 <p>These macros may be defined before the inclusion of the GLFW header and affect its behavior.</p>
 <p><code>GLFW_DLL</code> is required on Windows when using the GLFW DLL, to tell the compiler that the GLFW functions are defined in a DLL.</p>
 <p>The following macros control which OpenGL or OpenGL ES API header is included. Only one of these may be defined at a time.</p>
-    <p><code>GLFW_INCLUDE_GLCOREARB</code> makes the GLFW header include the modern <code>gl/glcorearb.h</code> header (<code>OpenGL/gl3.h</code>
+    <p><code>GLFW_INCLUDE_GLCOREARB</code> makes the GLFW header include the modern <code>GL/glcorearb.h</code> header (<code>OpenGL/gl3.h</code>
         on OS X) instead of the regular OpenGL header.</p>
 <p><code>GLFW_INCLUDE_ES1</code> makes the GLFW header include the OpenGL ES 1.x <code>GLES/gl.h</code> header instead of the regular OpenGL header.</p>
 <p><code>GLFW_INCLUDE_ES2</code> makes the GLFW header include the OpenGL ES 2.0 <code>GLES2/gl2.h</code> header instead of the regular OpenGL header.</p>
@@ -122,7 +122,7 @@ GLFW header option macros</h2>
 <p><code>GLFW_INCLUDE_ES31</code> makes the GLFW header include the OpenGL ES 3.1 <code>GLES3/gl31.h</code> header instead of the regular OpenGL header.</p>
 <p><code>GLFW_INCLUDE_VULKAN</code> makes the GLFW header include the Vulkan <code>vulkan/vulkan.h</code> header instead of the regular OpenGL header.</p>
 <p><code>GLFW_INCLUDE_NONE</code> makes the GLFW header not include any OpenGL or OpenGL ES API header. This is useful in combination with an extension loading library.</p>
-    <p>If none of the above inclusion macros are defined, the standard OpenGL <code>gl/gl.h</code> header (<code>OpenGL/gl.h</code>
+    <p>If none of the above inclusion macros are defined, the standard OpenGL <code>GL/gl.h</code> header (<code>OpenGL/gl.h</code>
         on OS X) is included.</p>
 <p>The following macros control the inclusion of additional API headers. Any number of these may be defined simultaneously, and/or together with one of the above macros.</p>
 <p><code>GLFW_INCLUDE_GLEXT</code> makes the GLFW header include the appropriate extension header for the OpenGL or OpenGL ES header selected above after and in addition to that header.</p>

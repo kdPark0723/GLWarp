@@ -25,8 +25,7 @@ class Window {
   int getWigth() const noexcept;
   int getHeight() const noexcept;
 
-  void setWigth(int width) noexcept;
-  void setHeight(int height) noexcept;
+  void reSize(int width, int height);
 
   void* getWindowContext();
 

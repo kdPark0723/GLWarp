@@ -7,7 +7,7 @@
 #include <iostream>
 #include <cmath>
 
-#include "../include/InternalGraphicLib.h"
+#include "gllib.h"
 #include "../include/VertexShader.h"
 #include "../include/FragmentShader.h"
 #include "../include/ColorBuffer.h"

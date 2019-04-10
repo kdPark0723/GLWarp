@@ -11,7 +11,7 @@
 #include <sstream>
 #include <string>
 
-#include "../include/InternalGraphicLib.h"
+#include "Lib.h"
 #include "../include/ErrorHandel.h"
 
 template <unsigned int T>
@@ -28,24 +28,27 @@ gl::Shader<T>::Shader(std::string &&route)
 
 template <unsigned int T>
 gl::Shader<T>::~Shader() {
-  glDeleteShader(BaseObject<Shader<T>>::mObjectId);
+  glDeleteShader(getGLuint(BaseObject<Shader<T>>::mObjectId));
 }
 
 template <unsigned int T>
 void gl::Shader<T>::compile() {
-  glCompileShader(BaseObject<Shader<T>>::mObjectId);
+  glCompileShader(getGLuint(BaseObject<Shader<T>>::mObjectId));
 
   int result;
   int infoLogLength;
 
-  glGetShaderiv(BaseObject<Shader<T>>::mObjectId, GL_COMPILE_STATUS, &result);
-  glGetShaderiv(BaseObject<Shader<T>>::mObjectId, GL_INFO_LOG_LENGTH, &infoLogLength);
+  glGetShaderiv(getGLuint(BaseObject<Shader<T>>::mObjectId), GL_COMPILE_STATUS, &result);
+  glGetShaderiv(getGLuint(BaseObject<Shader<T>>::mObjectId), GL_INFO_LOG_LENGTH, &infoLogLength);
 
   if (infoLogLength > 0) {
     std::string errorMessage{};
     errorMessage.resize(infoLogLength + 1);
 
-    glGetShaderInfoLog(BaseObject<Shader<T>>::mObjectId, infoLogLength, nullptr, (GLchar *) (errorMessage.data()));
+    glGetShaderInfoLog(getGLuint(BaseObject<Shader<T>>::mObjectId),
+                       infoLogLength,
+                       nullptr,
+                       (GLchar *) (errorMessage.data()));
     errorHandle(Error::GL, errorMessage);
   }
 }
@@ -82,7 +85,7 @@ void gl::Shader<T>::init() {
 
   const std::string& shaderSource{getShaderSource()};
   const char *pShaderSource = shaderSource.data();
-  glShaderSource(BaseObject<Shader<T>>::mObjectId, 1, &pShaderSource, nullptr);
+  glShaderSource(getGLuint(BaseObject<Shader<T>>::mObjectId), 1, &pShaderSource, nullptr);
 }
 
 #endif

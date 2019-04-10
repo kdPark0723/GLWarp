@@ -2,7 +2,7 @@
  * 3-D gear wheels.  This program is in the public domain.
  *
  * Command line options:
- *    -info      print gl implementation information
+ *    -info      print GL implementation information
  *    -exit      automatically exit after 30 seconds
  *
  *

@@ -7,7 +7,7 @@
 
 #include "../include/VertexArray.h"
 
-#include "../include/InternalGraphicLib.h"
+#include "../include/Lib.h"
 
 template<size_t N>
 gl::VertexArray<N>::VertexArray() {

@@ -7,26 +7,26 @@
 
 #include "../include/Program.h"
 
-#include "../include/InternalGraphicLib.h"
+#include "../include/Lib.h"
 
 gl::Program::Program()
   : BaseObject<Program>{} {
   mObjectId = static_cast<unsigned int>(glCreateProgram());
 }
 gl::Program::~Program() {
-  glDeleteProgram(static_cast<GLuint>(mObjectId));
+  glDeleteProgram(getGLuint(mObjectId));
 }
 
 void gl::Program::link() {
-  glLinkProgram(static_cast<GLuint>(mObjectId));
+  glLinkProgram(getGLuint(mObjectId));
 }
 void gl::Program::use() {
-  glUseProgram(static_cast<GLuint>(mObjectId));
+  glUseProgram(getGLuint(mObjectId));
 }
 
 template<unsigned int type>
 gl::Program &gl::Program::attach(gl::Shader<type> &shader) {
-  glAttachShader(static_cast<GLuint>(mObjectId), static_cast<GLuint>(shader.getObjectId()));
+  glAttachShader(getGLuint(mObjectId), getGLuint(shader.getObjectId()));
 
   return *this;
 }

@@ -9,7 +9,7 @@
 
 template<unsigned int T>
 void gl::Parcher<T>::patchParameter(int value) {
-  glPatchParameteri(static_cast<GLenum>(T), static_cast<GLint>(value));
+  glPatchParameteri(getGLenum(T), getGLint(value));
 }
 
 #endif //GLWARPER_PATHER_INC_H

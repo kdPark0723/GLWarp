@@ -72,7 +72,7 @@ set(GL_WARP_HEADERS
 	include/Patcher.h
 	src/Pather-inc.h
 	include/TessellationControlShader.h
-	include/TessellationEvaluationShader.h)
+	include/TessellationEvaluationShader.h include/Polygon.h src/Polygon-inc.h)
 
 add_library(GL_WARP STATIC
 	${GL_WARP_SOURSE}

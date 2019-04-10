@@ -5,7 +5,7 @@
 #ifndef GLWARPER_VERTEXSHADER_H
 #define GLWARPER_VERTEXSHADER_H
 
-#include "InternalGraphicLib.h"
+#include "Lib.h"
 
 #include "Shader.h"
 

@@ -14,6 +14,7 @@ template<typename Derived>
 gl::BaseObject<Derived>::BaseObject()
   : mObjectId{} {
   initializer().initGLLoader();
+  initializer().initGL();
 }
 
 template<typename Derived>

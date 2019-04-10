@@ -7,6 +7,7 @@
 
 namespace gl {
 
+// Todo 인터페이스 개선, 싱글톤 객체 삭제 만들기, 멀티 쓰레드 지원
 template <typename Derived>
 class Singleton {
  public:
@@ -16,7 +17,6 @@ class Singleton {
     return instance;
   }
 
- protected:
   Singleton() = default;
   virtual ~Singleton() = default;
 };

@@ -7,10 +7,10 @@
 
 #include "../include/Point.h"
 
-#include "../include/InternalGraphicLib.h"
+#include "../include/gllib.h"
 
 void gl::Point::size(float size) {
-  glPointSize(static_cast<GLfloat>(size));
+  glPointSize(getGLfloat(size));
 }
 
 gl::Point& gl::point() {

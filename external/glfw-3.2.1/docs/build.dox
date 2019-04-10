@@ -65,7 +65,7 @@ The following macros control which OpenGL or OpenGL ES API header is included.
 Only one of these may be defined at a time.
 
 `GLFW_INCLUDE_GLCOREARB` makes the GLFW header include the modern
-`gl/glcorearb.h` header (`OpenGL/gl3.h` on OS X) instead of the regular OpenGL
+`GL/glcorearb.h` header (`OpenGL/gl3.h` on OS X) instead of the regular OpenGL
 header.
 
 `GLFW_INCLUDE_ES1` makes the GLFW header include the OpenGL ES 1.x `GLES/gl.h`
@@ -86,7 +86,7 @@ header instead of the regular OpenGL header.
 `GLFW_INCLUDE_NONE` makes the GLFW header not include any OpenGL or OpenGL ES API
 header.  This is useful in combination with an extension loading library.
 
-If none of the above inclusion macros are defined, the standard OpenGL `gl/gl.h`
+If none of the above inclusion macros are defined, the standard OpenGL `GL/gl.h`
 header (`OpenGL/gl.h` on OS X) is included.
 
 The following macros control the inclusion of additional API headers.  Any

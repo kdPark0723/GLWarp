@@ -7,7 +7,7 @@
 
 #include "../include/Buffer.h"
 
-#include "../include/InternalGraphicLib.h"
+#include "../include/Lib.h"
 
 template<unsigned int T>
 gl::Buffer<T>::Buffer()
@@ -18,7 +18,7 @@ template<unsigned int T>
 template<size_t N>
 void gl::Buffer<T>::clear(const float (&value)[N]) {
   const GLfloat *pValue = value;
-  glClearBufferfv(static_cast<GLenum>(T), static_cast<GLint>(BaseObject<Buffer<T>>::mObjectId), pValue);
+  glClearBufferfv(getGLenum(T), getGLint(BaseObject<Buffer<T>>::mObjectId), pValue);
 }
 
 #endif //GLWARPER_BUFFER_INC_H

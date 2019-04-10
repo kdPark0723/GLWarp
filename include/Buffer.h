@@ -5,8 +5,6 @@
 #ifndef GLWARPER_BUFFER_H
 #define GLWARPER_BUFFER_H
 
-#include <glob.h>
-
 #include "Singleton.h"
 #include "BaseObejct.h"
 

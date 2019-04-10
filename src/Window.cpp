@@ -19,9 +19,8 @@ gl::Window::Window(std::string &title, int windowWidth, int windowHeight)
   mInfo.windowWidth = windowWidth;
   mInfo.windowHeight = windowHeight;
 
-  Initializer::getInstance().initWindowSystem();
+  initializer().initWindowSystem();
   init();
-  Initializer::getInstance().initGLLoader();
 }
 gl::Window::Window(std::string &&title, int windowWidth, int windowHeight)
   : mInfo{}, mWindow{} {
@@ -29,9 +28,8 @@ gl::Window::Window(std::string &&title, int windowWidth, int windowHeight)
   mInfo.windowWidth = windowWidth;
   mInfo.windowHeight = windowHeight;
 
-  Initializer::getInstance().initWindowSystem();
+  initializer().initWindowSystem();
   init();
-  Initializer::getInstance().initGLLoader();
 }
 
 gl::Window::~Window() {
@@ -43,12 +41,6 @@ int gl::Window::getWigth() const noexcept {
 }
 int gl::Window::getHeight() const noexcept {
   return mInfo.windowHeight;
-}
-void gl::Window::setWigth(int width) noexcept {
-  mInfo.windowWidth = width;
-}
-void gl::Window::setHeight(int height) noexcept {
-  mInfo.windowHeight = height;
 }
 
 void* gl::Window::getWindowContext() {
@@ -76,6 +68,11 @@ void gl::Window::init() {
 
   // Ensure we can capture the escape key being pressed below
   glfwSetInputMode(static_cast<GLFWwindow *>(mWindow), GLFW_STICKY_KEYS, GL_TRUE);
+}
+
+void gl::Window::reSize(int width, int height) {
+  mInfo.windowWidth = width;
+  mInfo.windowHeight = height;
 }
 
 #endif

@@ -5,7 +5,7 @@
 #ifndef GLWARPER_TESSELLATIONEVALUATIONSHADER_H
 #define GLWARPER_TESSELLATIONEVALUATIONSHADER_H
 
-#include "InternalGraphicLib.h"
+#include "Lib.h"
 
 #include "Shader.h"
 

@@ -57,7 +57,7 @@ static GLFWbool chooseGLXFBConfig(const _GLFWfbconfig* desired, GLXFBConfig* res
     GLFWbool trustWindowBit = GLFW_TRUE;
 
     // HACK: This is a (hopefully temporary) workaround for Chromium
-  //       (VirtualBox gl) not setting the window bit on any GLXFBConfigs
+  //       (VirtualBox GL) not setting the window bit on any GLXFBConfigs
     vendor = glXGetClientString(_glfw.x11.display, GLX_VENDOR);
     if (strcmp(vendor, "Chromium") == 0)
         trustWindowBit = GLFW_FALSE;

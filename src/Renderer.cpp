@@ -4,9 +4,12 @@
 
 #include "../include/Renderer.h"
 
+#include "../include/Initializer.h"
+
 gl::Renderer::Renderer(Window &window)
   : mWindow{&window}, mFrame{} {
-
+  initializer().initGLLoader();
+  initializer().initGL();
 }
 gl::Renderer::~Renderer() = default;
 

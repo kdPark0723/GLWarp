@@ -75,7 +75,7 @@ typedef struct
 
 
 //========================================================================
-// Initializer control global variables
+// Program control global variables
 //========================================================================
 
 // Window dimensions
@@ -230,7 +230,7 @@ static void usage(void)
     printf(" -h   Display this help\n");
     printf(" -s   Run program as single thread (default is to use two threads)\n");
     printf("\n");
-    printf("Initializer runtime controls:\n");
+  printf("Program runtime controls:\n");
     printf(" W    Toggle wireframe mode\n");
     printf(" Esc  Exit program\n");
 }

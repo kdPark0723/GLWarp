@@ -43,7 +43,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-#include <Assert.h>
+#include <assert.h>
 
 #include <vulkan/vulkan.h>
 #include <GLFW/glfw3.h>
