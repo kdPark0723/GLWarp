@@ -5,6 +5,8 @@
 #ifndef GLWARPER_BASEOBEJCT_H
 #define GLWARPER_BASEOBEJCT_H
 
+#include "./Utils.h"
+
 namespace gl {
 
 template <typename Derived>
@@ -13,10 +15,10 @@ class BaseObject {
   inline BaseObject();
   ~BaseObject() = default;
 
-  inline unsigned int getObjectId() const;
+  inline unsigned int getName() const;
 
  protected:
-  unsigned int mObjectId;
+  GLuint name;
 };
 
 }

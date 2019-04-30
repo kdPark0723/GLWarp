@@ -11,46 +11,57 @@
 #include <sstream>
 #include <string>
 
-#include "Lib.h"
+#include "Utils.h"
 #include "../include/ErrorHandel.h"
 
 template <unsigned int T>
 gl::Shader<T>::Shader(std::string &route)
-  : BaseObject<Shader<T>>{}, mRoute{route} {
+  : BaseObject<Shader < T>>
+{
+}, mRoute{
+route}, mIsCompiled{
+false} {
   init();
 }
 
 template <unsigned int T>
 gl::Shader<T>::Shader(std::string &&route)
-  : mRoute{route} {
+  : BaseObject<Shader < T>>
+{
+}, mRoute{
+route}, mIsCompiled{
+false} {
   init();
 }
 
 template <unsigned int T>
 gl::Shader<T>::~Shader() {
-  glDeleteShader(getGLuint(BaseObject<Shader<T>>::mObjectId));
+  glDeleteShader(getGLuint(BaseObject < Shader < T >> ::mName));
 }
 
 template <unsigned int T>
 void gl::Shader<T>::compile() {
-  glCompileShader(getGLuint(BaseObject<Shader<T>>::mObjectId));
+  glCompileShader(getGLuint(BaseObject < Shader < T >> ::mName));
 
   int result;
   int infoLogLength;
 
-  glGetShaderiv(getGLuint(BaseObject<Shader<T>>::mObjectId), GL_COMPILE_STATUS, &result);
-  glGetShaderiv(getGLuint(BaseObject<Shader<T>>::mObjectId), GL_INFO_LOG_LENGTH, &infoLogLength);
+  glGetShaderiv(getGLuint(BaseObject < Shader < T >> ::mName), GL_COMPILE_STATUS, &result);
+  glGetShaderiv(getGLuint(BaseObject < Shader < T >> ::mName), GL_INFO_LOG_LENGTH, &infoLogLength);
 
   if (infoLogLength > 0) {
     std::string errorMessage{};
     errorMessage.resize(infoLogLength + 1);
 
-    glGetShaderInfoLog(getGLuint(BaseObject<Shader<T>>::mObjectId),
+    glGetShaderInfoLog(getGLuint(BaseObject < Shader < T >> ::mName),
                        infoLogLength,
                        nullptr,
                        (GLchar *) (errorMessage.data()));
     errorHandle(Error::GL, errorMessage);
+    return;
   }
+
+  mIsCompiled = true;
 }
 
 // // Todo 가져온 쉐이더 코드를 수정하면 실제 파일도 수정되게 만들기
@@ -81,11 +92,16 @@ const std::string gl::Shader<T>::getShaderSource() const {
 
 template <unsigned int T>
 void gl::Shader<T>::init() {
-  BaseObject<Shader<T>>::mObjectId = glCreateShader(T);
+  BaseObject < Shader < T >> ::mName = glCreateShader(T);
 
   const std::string& shaderSource{getShaderSource()};
   const char *pShaderSource = shaderSource.data();
-  glShaderSource(getGLuint(BaseObject<Shader<T>>::mObjectId), 1, &pShaderSource, nullptr);
+  glShaderSource(getGLuint(BaseObject < Shader < T >> ::mName), 1, &pShaderSource, nullptr);
+}
+
+template<unsigned int T>
+bool gl::Shader<T>::isCompiled() {
+  return mIsCompiled;
 }
 
 #endif

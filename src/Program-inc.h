@@ -11,22 +11,28 @@
 
 gl::Program::Program()
   : BaseObject<Program>{} {
-  mObjectId = static_cast<unsigned int>(glCreateProgram());
+  name = static_cast<unsigned int>(glCreateProgram());
 }
 gl::Program::~Program() {
-  glDeleteProgram(getGLuint(mObjectId));
+  glDeleteProgram(getGLuint(name));
 }
 
 void gl::Program::link() {
-  glLinkProgram(getGLuint(mObjectId));
+  glLinkProgram(getGLuint(name));
 }
 void gl::Program::use() {
-  glUseProgram(getGLuint(mObjectId));
+  glUseProgram(getGLuint(name));
 }
 
 template<unsigned int type>
 gl::Program &gl::Program::attach(gl::Shader<type> &shader) {
-  glAttachShader(getGLuint(mObjectId), getGLuint(shader.getObjectId()));
+  // Todo 쉐이더가 컴파일 되었는지 확인은 프로그램 링크 할때 체크하게 옮길것!!
+//  if (!shader.isCompiled()) {
+//    errorHandle(Error::GL, "This Shader isn't compiled. Please compile shader.");
+//    return *this;
+//  }
+
+  glAttachShader(getGLuint(name), getGLuint(shader.getName()));
 
   return *this;
 }

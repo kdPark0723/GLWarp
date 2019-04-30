@@ -12,19 +12,19 @@
 
 template<typename Derived>
 gl::BaseObject<Derived>::BaseObject()
-  : mObjectId{} {
+  : name{} {
   initializer().initGLLoader();
   initializer().initGL();
 }
 
 template<typename Derived>
-unsigned int gl::BaseObject<Derived>::getObjectId() const {
-  if (!mObjectId) {
-    errorHandle(Error::GL, "This ID is not generated.");
+unsigned int gl::BaseObject<Derived>::getName() const {
+  if (!name) {
+    errorHandle(Error::GL, "This name is not generated.");
     return 0;
   }
 
-  return mObjectId;
+  return name;
 }
 
 #endif //GLWARPER_BASEOBJECT_INC_H

@@ -6,8 +6,6 @@
 
 #include <iostream>
 #include <cmath>
-#include <TessellationEvaluationShader.h>
-#include <TessellationControlShader.h>
 
 #include "../include/Lib.h"
 #include "../include/VertexShader.h"
@@ -26,7 +24,7 @@ Renderer::Renderer(gl::Window &window)
   gl::TessellationControlShader tessellationControlShader{"./shaders/tessellationControlShader.tesc"};
   tessellationControlShader.compile();
   gl::TessellationEvaluationShader tessellationEvaluationShader{"./shaders/tessellationEvaluationShader.tese"};
-  tessellationControlShader.compile();
+  tessellationEvaluationShader.compile();
 
   mProgram.attach(vertexShader)
     .attach(tessellationControlShader)

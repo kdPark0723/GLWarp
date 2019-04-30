@@ -4,7 +4,7 @@
 
 #include "include/Initializer.h"
 
-#include "../include/Lib.h"
+#include "../include/Utils.h"
 #include <GLFW/glfw3.h>
 #include <sstream>
 
@@ -79,16 +79,16 @@ void gl::Initializer::initGL() {
     return;
 
 #ifndef NDEBUG
-  GLint flags;
-  glGetIntegerv(GL_CONTEXT_FLAGS, &flags);
-
-  if (flags & GL_CONTEXT_FLAG_DEBUG_BIT) {
-    glEnable(GL_DEBUG_OUTPUT);
-    glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
-    glDebugMessageCallback(glErrorHandle, NULL);
-
-    glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, NULL, GL_TRUE);
-  }
+//   GLint flags;
+//   glGetIntegerv(GL_CONTEXT_FLAGS, &flags);
+//
+//   if (flags & GL_CONTEXT_FLAG_DEBUG_BIT) {
+//     glEnable(GL_DEBUG_OUTPUT);
+//     glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
+//     glDebugMessageCallback(glErrorHandle, nullptr);
+//
+//     glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, nullptr, GL_TRUE);
+//   }
   // It's a debug context
 #endif
 

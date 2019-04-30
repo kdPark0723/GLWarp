@@ -7,18 +7,33 @@
 
 #include "../include/Buffer.h"
 
-#include "../include/Lib.h"
+#include "../include/ErrorHandel.h"
 
-template<unsigned int T>
-gl::Buffer<T>::Buffer()
-  : BaseObject<Buffer<T>>{} {
+gl::Buffer::Buffer(size_t size)
+  : size{size}, isBind{false} {
+  glGenBuffers(1, &name);
+}
+gl::Buffer::~Buffer() {
+  glDeleteBuffers(1, &name);
 }
 
-template<unsigned int T>
-template<size_t N>
-void gl::Buffer<T>::clear(const float (&value)[N]) {
-  const GLfloat *pValue = value;
-  glClearBufferfv(getGLenum(T), getGLint(BaseObject<Buffer<T>>::mObjectId), pValue);
+void gl::Buffer::setSize(size_t size) {
+  this->size = size;
+}
+
+void gl::Buffer::bind(Buffer::Target target) {
+  this->target = target;
+  glBindBuffer(gl::getGLenum(target), name);
+}
+
+void gl::Buffer::data(const GLvoid *data, Buffer::Usage usage) {
+  if (!isBind)
+    gl::errorHandle(gl::Error::GL, "It is't bind.");
+  glBufferData(gl::getGLenum(target), gl::getGLsizeiptr(size), data, gl::getGLenum(usage));
+}
+
+void gl::Buffer::subData(int offset, const GLvoid *data) {
+  glBufferSubData(gl::getGLenum(target), offset, gl::getGLsizeiptr(size), data);
 }
 
 #endif //GLWARPER_BUFFER_INC_H

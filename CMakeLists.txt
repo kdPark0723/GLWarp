@@ -32,6 +32,7 @@ endif(INCLUDE_DISTRIB)
 
 
 include_directories(
+	external/gl3w/include
 	include
 	.
 )
@@ -53,7 +54,7 @@ set(GL_WARP_HEADERS
 	include/VertexShader.h
 	include/Program.h
 	include/VertexArray.h
-	include/InternalGraphicLib.h
+	include/Utils.h
 	include/Buffer.h
 	include/Point.h
 	include/ColorBuffer.h
