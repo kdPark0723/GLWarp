@@ -9,31 +9,20 @@
 
 namespace gl {
 
-class Initializer : public gl::Singleton<Initializer> {
+class Initializer {
  public:
   struct Info {
     int majorVersion;
     int minorVersion;
   };
 
-  explicit Initializer(int majorVersion = 4, int minorVersion = 3);
-  ~Initializer();
+  static void init();
 
   void initWindowSystem();
   void initGLLoader();
   void initGL();
 
- private:
-  Info mInfo;
-
-  bool mIsInitedWindowSystem;
-  bool mIsInitedGlLoader;
-  bool mIsInitedGL;
 };
-
-inline Initializer& initializer();
-
-}
 
 #include "../src/Initializer-inc.h"
 

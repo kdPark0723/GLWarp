@@ -5,7 +5,7 @@
 #ifndef GLWARPER_COLORBUFFER_H
 #define GLWARPER_COLORBUFFER_H
 
-#include "Buffer.h"
+#include "buffer/buffer.h"
 
 namespace gl {
 

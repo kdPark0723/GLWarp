@@ -5,7 +5,7 @@
 #ifndef GLWARPER_PATCHER_H
 #define GLWARPER_PATCHER_H
 
-#include "Utils.h"
+#include "utils.h"
 
 namespace gl {
 

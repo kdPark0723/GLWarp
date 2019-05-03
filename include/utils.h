@@ -5,9 +5,10 @@
 #ifndef GLWARPER_UTILS_H
 #define GLWARPER_UTILS_H
 
-#include <GL/gl3w.h>
+#include "lowGL.h"
 
 namespace gl {
+namespace util {
 
 template<typename Integer>
 constexpr GLenum getGLenum(Integer value) {
@@ -48,6 +49,8 @@ template<typename FloatingPoint>
 constexpr GLdouble getGLdouble(FloatingPoint value) {
   return static_cast<GLdouble>(value);
 }
+}
+
 
 }
 

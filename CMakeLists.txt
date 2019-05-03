@@ -44,7 +44,6 @@ set(GL_WARP_SOURSE
 	)
 
 set(GL_WARP_HEADERS
-	include/Assert.h
 	include/ErrorHandel.h
 	include/Initializer.h
 	include/Window.h
@@ -54,15 +53,15 @@ set(GL_WARP_HEADERS
 	include/VertexShader.h
 	include/Program.h
 	include/VertexArray.h
-	include/Utils.h
-	include/Buffer.h
+    include/utils.h
+    include/buffer/buffer.h
 	include/Point.h
 	include/ColorBuffer.h
 	src/Shader-inc.h
 	src/Program-inc.h
 	src/ErrorHandel-inc.h
 	src/VertexArray-inc.h
-	src/Buffer-inc.h
+    src/buffer/buffer-inc.h
 	src/Point-inc.h
 	src/ColorBuffer-inc.h
 	src/Initializer-inc.h
@@ -73,7 +72,7 @@ set(GL_WARP_HEADERS
 	include/Patcher.h
 	src/Pather-inc.h
 	include/TessellationControlShader.h
-	include/TessellationEvaluationShader.h include/Polygon.h src/Polygon-inc.h)
+    include/TessellationEvaluationShader.h include/Polygon.h src/Polygon-inc.h include/definition.h include/Error.h include/buffer/bufferTarget.h include/buffer/bufferFormat.h include/buffer/bufferInternalFormat.h include/buffer/bufferType.h include/lowGL.h include/buffer/bufferBase.h include/buffer/bufferDataAdapter.h include/buffer/bufferTypeSupposerAdapter.h src/buffer/bufferFormat-inc.h src/buffer/bufferType-inc.h src/buffer/bufferInternalFormat-inc.h src/buffer/bufferTarget-inc.h include/buffer.h)
 
 add_library(GL_WARP STATIC
 	${GL_WARP_SOURSE}

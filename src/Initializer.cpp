@@ -4,7 +4,7 @@
 
 #include "include/Initializer.h"
 
-#include "../include/Utils.h"
+#include "utils.h"
 #include <GLFW/glfw3.h>
 #include <sstream>
 
